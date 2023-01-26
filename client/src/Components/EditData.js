@@ -1,6 +1,5 @@
-/* eslint-disable no-undef */
+
 import React, { useState, useEffect } from 'react';
-import { toast } from "react-toastify";
 import Axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -72,7 +71,8 @@ const EditData = () => {
   }
   useEffect(() => {
     getData();
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id])
 
   return (
     <div className='addData'>

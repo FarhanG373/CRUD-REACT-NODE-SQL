@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 const API = 'http://localhost:4200';
 
 const ViewData = () => {
-  const {id}= useParams();
   const [data, setData] = useState([]);
   const getData = async (e) => {
     const allData = await Axios.get(`${API}/getData`, {
