@@ -1,0 +1,25 @@
+.addData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    .form {
+        max-width: 800px;
+        width: 100%;
+        padding: 0px 20px;
+        box-sizing: border-box;
+
+        .form_row {
+            margin-bottom: 16px;
+
+            input {
+                width: 100%;
+                height: 42px;
+                box-sizing: border-box;
+                padding: 0px 12px;
+            }
+        }
+    }
+}
