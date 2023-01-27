@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import './component.scss';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 const API = 'http://localhost:4200';
@@ -35,40 +35,38 @@ const ViewData = () => {
     getData();
   }, [])
 
-  return (<>
-    <table border={'1'} style={{ width: '900px', margin: "auto" }}>
-      <tr>
-        <td> <Link to="/AddData">Add Data</Link></td>
-      </tr>
-      <tr>
-        <th>Number</th>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Actions</th>
-      </tr>
-      {
-        data.length > 0 ?
-          data.map((item, index) => {
-            return (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td><img src={`/images/${item.image}`} alt={item.name} width="100%" height="150" /></td>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
-                <td>{item.phone}</td>
-                <td><Link to={`/EditData/${item.id}`}>Edit</Link><button onClick={() => dltData(item.id)}>Delete</button><button>View</button></td>
-              </tr>
+  return (<div className='viewData'>
 
 
-            )
-          })
-          :
-          <tr><td colSpan={6} style={{textAlign:'center',fontWeight:'Bold'}}>No data available</td></tr>
-      }
-    </table>
-  </>
+    <div className='addDataBut'><Link to="/AddData">Add New Data</Link></div>
+    <div className='cardWrap'>
+    {data.length > 0 ?
+   
+      data.map((item, index) => {
+        return (
+          <div className='card' key={index}>
+            <div className='number'>{index + 1}</div>
+            <div className='image'><img src={`/images/${item.image}`} alt={item.name} width="100%"/></div>
+            <div className='body'>
+              <h2>{item.name}</h2>
+              <p><b>Email : </b>{item.email}</p>
+              <p><b>Phone : </b>{item.contact}</p>
+            </div>
+            <div className='footer'>
+              <Link to={`/EditData/${item.id}`}>Edit</Link>
+              <button onClick={() => dltData(item.id)}>Delete</button>
+              {/* <button>View</button> */}
+            </div>
+          </div>
+        )
+      })
+     
+      :
+      <div className='noData'><h2>No data Available</h2></div>
+      
+    }
+    </div>
+  </div>
   )
 }
 

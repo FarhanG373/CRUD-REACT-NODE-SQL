@@ -71,22 +71,26 @@ const EditData = () => {
   }
   useEffect(() => {
     getData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   return (
     <div className='addData'>
-      <Link to='/AddData'>Add Data</Link>
-      <Link to='/'>View Data</Link>
+
       <div className='form'>
-        <div className='form_row'><input type={`text`} name={`name`} value={name || ""} onChange={handleInput} /></div>
-        <div className='form_row'><input type={`email`} name={`email`} value={email || ''} onChange={handleInput} /></div>
-        <div className='form_row'><input type={`text`} name={`phone`} value={contact || ''} onChange={handleInput} /></div>
-        <div className='form_row'><input type={`text`} name={`image`} placeholder={image || ''} onChange ={handleInput} readOnly/></div>
+        <h2>Edit data of '{name}'</h2>
+        <div className='links'>
+          <Link to='/AddData'>Add new Data</Link>
+          <Link to='/'>View all Data</Link>
+        </div>
+        <div className='form_row'><input type={`text`} name={`name`} placeholder={name || ""} onChange={handleInput} /></div>
+        <div className='form_row'><input type={`email`} name={`email`} placeholder={email || ''} onChange={handleInput} /></div>
+        <div className='form_row'><input type={`text`} name={`phone`} placeholder={contact || ''} onChange={handleInput} /></div>
+        <div className='form_row'><input type={`text`} name={`image`} placeholder={image || ''} onChange={handleInput} readOnly /></div>
         <div className='form_row'><input type={`file`} defaultValue={image || ''} name="image" onChange={imgStatus} /></div>
 
         <img src={`/images/${image}`} alt="" />
-        <div className='form_row'><input type={`submit`} value={`Insert`} onClick={updateData} /></div>
+        <div className='form_row'><input type={`submit`} value={`Insert`} onClick={updateData} style={{marginTop:'1rem'}}/></div>
       </div>
     </div>
   )

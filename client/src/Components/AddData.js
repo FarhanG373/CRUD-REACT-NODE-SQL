@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './component.scss';
 import Axios from 'axios';
 import { toast } from "react-toastify";
 const API = 'http://localhost:4200';
@@ -53,6 +54,7 @@ const AddData = () => {
   return (
     <div className='addData'>
       <div className='form'>
+        <h2>Add new Data</h2>
         <div className='form_row'><input type={`text`} placeholder='Name' name={`name`} onChange={handleInput} /></div>
         <div className='form_row'><input type={`email`} placeholder='Email' name={`email`} onChange={handleInput} /></div>
         <div className='form_row'><input type={`text`} placeholder='Phone' name={`phone`} onChange={handleInput} /></div>
