@@ -42,6 +42,7 @@ router.post('/AddData', upload.single('image'), (req, res) => {
     try {
         let date = moment(new Date()).format('YYY-MM-DD HH:MM:SS');
         con.query(`INSERT INTO crud_table SET?`, {
+            //DB Fileld name : form field name
             name: name,
             email: email,
             contact: phone,
